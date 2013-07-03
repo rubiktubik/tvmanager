@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvManager", "TvManager\TvManager.csproj", "{1B8218B3-F0C4-412A-8D61-E1B3F9798639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVLib", "TVLib\TVLib.csproj", "{3F750825-291A-43B8-A47B-F5040C2800B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8DF733B0-A307-49D6-8265-BB1EB50B0AD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B8218B3-F0C4-412A-8D61-E1B3F9798639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8218B3-F0C4-412A-8D61-E1B3F9798639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8218B3-F0C4-412A-8D61-E1B3F9798639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8218B3-F0C4-412A-8D61-E1B3F9798639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F750825-291A-43B8-A47B-F5040C2800B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F750825-291A-43B8-A47B-F5040C2800B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F750825-291A-43B8-A47B-F5040C2800B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F750825-291A-43B8-A47B-F5040C2800B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
