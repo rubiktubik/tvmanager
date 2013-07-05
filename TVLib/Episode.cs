@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TVLib
 {
-    public class Episode
+    public class Episode : IComparable
     {
         public int Number { get; set; }
         public string Name { get; set; }
@@ -14,6 +14,14 @@ namespace TVLib
         {
             this.Number = number;
             this.Name = name;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Episode otherEpisode = obj as Episode;
+            return this.Number.CompareTo(otherEpisode.Number);
         }
     }
 }

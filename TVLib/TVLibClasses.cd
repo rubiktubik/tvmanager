@@ -10,21 +10,22 @@
   <Class Name="TVLib.Episode">
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Episode.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TVLib.Season">
-    <Position X="6.5" Y="2.5" Width="1.5" />
+    <Position X="1.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAEAAAAABAAAAIAAAAAAAAAAAAAA=</HashCode>
       <FileName>Season.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TVLib.Show">
-    <Position X="8.25" Y="2.5" Width="1.5" />
+    <Position X="6.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAQAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Show.cs</FileName>
     </TypeIdentifier>
   </Class>

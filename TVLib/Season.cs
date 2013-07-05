@@ -8,24 +8,17 @@ namespace TVLib
     public class Season
     {
         public int Number { get; set; }
-        public List<Episode> Episodes { get; set; }
+        public Dictionary<int,Episode> Episodes { get; set; }
 
-        public void AddEpisode(Episode episode)
+        public Season(int number) 
         {
-            this.Episodes.Add(episode);
-            //TODO: Keine doppelten Folgen!
-        }
-
-        public void RemoveEpisode(int number)
-        {
-            throw new System.NotImplementedException();
-            //TODO: Besser Struktur für Episodenliste um besser zu suchen und loeschen
+            this.Number = number;
+            this.Episodes = new Dictionary<int, Episode>();
         }
 
         //Konstruktor
-        public Season(int number, List<Episode> episodes)
+        public Season(int number, Dictionary<int, Episode> episodes) : this(number)
         {
-            this.Number = number;
             //Auf Null pruefen
             if (episodes == null)
             {
@@ -39,6 +32,21 @@ namespace TVLib
             {
                 this.Episodes = episodes;
             }
+        }
+
+
+        public void AddEpisode(Episode episode)
+        {
+            this.Episodes.Add(episode.Number, episode);
+        }
+
+        /// <summary>
+        /// Remove Episode 
+        /// </summary>
+        /// <param name="number">Episodenumber which is used as key</param>
+        public void RemoveEpisode(int number)
+        {
+            this.Episodes.Remove(number);
         }
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Season.cs" />
     <Compile Include="Show.cs" />
     <Compile Include="Tests\SeasonTest.cs" />
+    <Compile Include="Tests\ShowTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TVLibClasses.cd" />
