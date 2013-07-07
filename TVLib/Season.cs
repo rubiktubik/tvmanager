@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TVLib
 {
-    public class Season : ICollection<Episode>
+    public class Season : ICollection<Episode>,IEquatable<Season>
     {
         public int Number { get; set; }
         private Dictionary<int, Episode> Episodes { get; set; }
@@ -46,6 +46,20 @@ namespace TVLib
             else
             {
                 throw new ArgumentOutOfRangeException("Episode nicht vorhanden");
+            }
+        }
+
+        public bool Remove(int number)
+        {
+            //Find the Episode to remove
+            if (this.Episodes.ContainsKey(number))
+            {
+                this.Episodes.Remove(number);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -124,6 +138,30 @@ namespace TVLib
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return this.Episodes.GetEnumerator();
+        }
+        #endregion
+
+        #region IEqualable Members
+        public bool Equals(Season other)
+        {
+            if (other.Number == this.Number)
+            {
+                foreach (var otherElement in this)
+                {
+                    foreach (var thisItem in other)
+                    {
+                        if (otherElement.Equals(thisItem))
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
     }

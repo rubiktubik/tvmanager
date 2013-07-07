@@ -158,5 +158,34 @@ namespace TVLib.Tests
             Assert.That(liste[1].Name, Is.EqualTo("Second"));
             Assert.That(liste[2].Name, Is.EqualTo("Third"));
         }
+
+        [Test]
+        public void EqualsTrueTest()
+        {
+            Season s01 = new Season(1);
+            s01.Add(new Episode(1, "Pilot"));
+            s01.Add(new Episode(2, "Second"));
+
+            Season s02 = new Season(1);
+            s02.Add(new Episode(1, "Pilot"));
+            s02.Add(new Episode(2, "Second"));
+
+            Assert.That(s01.Equals(s02));
+        }
+
+        [Test]
+        public void EqualsFalseTest()
+        {
+            Season s01 = new Season(1);
+            s01.Add(new Episode(1, "Pilot"));
+            s01.Add(new Episode(2, "Second"));
+
+            Season s02 = new Season(1);
+            s02.Add(new Episode(1, "Pilot"));
+            s02.Add(new Episode(2, "Bla"));
+
+            Assert.That(s02.Equals(s01));
+        }
+
     }
 }
