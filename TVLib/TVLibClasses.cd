@@ -18,9 +18,10 @@
   <Class Name="TVLib.Season">
     <Position X="1.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAEAAAAABAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACIAAAAAACAAABAQAEAABASAAAAAAAAAAAAAAABQIAA=</HashCode>
       <FileName>Season.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TVLib.Show">
     <Position X="6.25" Y="3" Width="1.5" />

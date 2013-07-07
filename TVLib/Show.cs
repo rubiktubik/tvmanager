@@ -15,12 +15,31 @@ namespace TVLib
         /// </summary>
         public void AddSeason(Season season)
         {
-            throw new System.NotImplementedException();
+            if (season == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else if (Seasons.ContainsKey(season.Number) == true)
+            {
+                throw new ArgumentException("Season " + season.Number + " schon vorhanden!");
+            }
+            else
+            {
+                this.Seasons.Add(season.Number, season);
+            }
+
         }
 
         public void RemoveSeason(int number)
         {
-            throw new System.NotImplementedException();
+            if (this.Seasons.ContainsKey(number) == false)
+            {
+                throw new ArgumentOutOfRangeException("Keine Season " + number + " vorhanden");
+            }
+            else
+            {
+                this.Seasons.Remove(number);
+            }
         }
 
         public Show(string name, Dictionary<int, Season> seasons) : this(name)

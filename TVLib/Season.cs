@@ -5,19 +5,23 @@ using System.Text;
 
 namespace TVLib
 {
-    public class Season
+    public class Season : ICollection<Episode>
     {
         public int Number { get; set; }
-        public Dictionary<int,Episode> Episodes { get; set; }
+        private Dictionary<int, Episode> Episodes { get; set; }
 
-        public Season(int number) 
+        // For IsReadOnly
+        private bool isRO = false;
+
+        public Season(int number)
         {
             this.Number = number;
             this.Episodes = new Dictionary<int, Episode>();
         }
 
         //Konstruktor
-        public Season(int number, Dictionary<int, Episode> episodes) : this(number)
+        public Season(int number, Dictionary<int, Episode> episodes)
+            : this(number)
         {
             //Auf Null pruefen
             if (episodes == null)
@@ -33,20 +37,94 @@ namespace TVLib
                 this.Episodes = episodes;
             }
         }
-
-
-        public void AddEpisode(Episode episode)
+        public Episode GetEpisodeByNumber(int number)
         {
-            this.Episodes.Add(episode.Number, episode);
+            if (this.Episodes.ContainsKey(number))
+            {
+                return Episodes[number];
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Episode nicht vorhanden");
+            }
         }
 
-        /// <summary>
-        /// Remove Episode 
-        /// </summary>
-        /// <param name="number">Episodenumber which is used as key</param>
-        public void RemoveEpisode(int number)
+        #region ICollection Members
+        public void Add(Episode item)
         {
-            this.Episodes.Remove(number);
+            if (!this.Contains(item))
+            {
+                this.Episodes.Add(item.Number, item);
+            }
+            else
+            {
+                throw new ArgumentException("Episode schon vorhanden");
+            }
         }
+
+        public void Clear()
+        {
+            this.Episodes.Clear();
+        }
+
+        public bool Contains(Episode item)
+        {
+            if (this.Episodes.ContainsKey(item.Number) == true && this.Episodes[item.Number].Name == item.Name)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void CopyTo(Episode[] array, int arrayIndex)
+        {
+            int i = 0;
+            foreach (var item in this.Episodes)
+            {
+                array[i] = (Episode)item.Value;
+                i++;
+            }
+        }
+
+        public int Count
+        {
+            get { return this.Episodes.Count; }
+        }
+
+        public bool IsReadOnly
+        {
+            get { return isRO; }
+        }
+
+        public bool Remove(Episode item)
+        {
+            //Find the Episode to remove
+            if (this.Episodes.ContainsKey(item.Number))
+            {
+                this.Episodes.Remove(item.Number);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public IEnumerator<Episode> GetEnumerator()
+        {
+            foreach (KeyValuePair<int, Episode> pair in this.Episodes)
+            {
+                yield return pair.Value;
+            }
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.Episodes.GetEnumerator();
+        }
+        #endregion
     }
 }
